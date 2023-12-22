@@ -1,0 +1,34 @@
+@model Watches
+
+@{
+    var ModelName = "Watch Details";
+    ViewData["Title"] = ModelName;
+}
+
+<h2>@ModelName</h2>
+<hr />
+
+<p>
+    <a asp-action="ListAll">Back to List</a>
+</p>
+
+<div class="thumbnail">
+    <img alt="@Model.Name" src="@Model.PhotoURL" height="800" width="800" class="img-responsive" >
+    <div class="caption-full">
+        <h2 class="pull-right">@Model.Price.ToString("c")</h2>
+        <h2>
+            <a href="">@Model.Name</a>
+        </h2>
+        <div>
+        <h4>Category: <b> @Model.Category.Name </b></h4>
+       
+      
+        </div>
+
+        <br />
+        <p class="button">
+            <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
+                asp-route-watchId="@Model.Id">Add Watch</a>
+        </p>
+    </div>
+</div>

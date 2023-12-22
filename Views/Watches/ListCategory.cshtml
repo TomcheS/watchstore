@@ -1,0 +1,15 @@
+@model IEnumerable<Watches>
+
+@{
+    var pageName = ViewBag.CurrentCategory;
+    ViewData["Title"] = pageName;
+}
+
+<h2>@pageName</h2>
+<hr />
+
+@foreach (var watch in Model)
+{
+    @Html.Partial("WatchSummary", watch)
+}
+<br />

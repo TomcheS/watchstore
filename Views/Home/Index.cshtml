@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Watches>
+
+@{
+    var pageName = "Home Page";
+    ViewData["Title"] = pageName;
+}
+
+<div align="center">
+    <h1>Welcome to Watch store!</h1>
+    <h2>Here's our selection of Watches.</h2>
+</div>
+
+@await Component.InvokeAsync("CarouselMenu")

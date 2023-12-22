@@ -1,0 +1,8 @@
+@model List<Watches>
+
+<h4>Search Results</h4>
+
+@foreach (var watch in Model)
+{
+    @Html.Partial("WatchSummary", watch)
+}

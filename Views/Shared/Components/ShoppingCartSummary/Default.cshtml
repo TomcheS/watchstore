@@ -1,0 +1,12 @@
+@using watchstore.ViewModels
+@model ShoppingCartViewModel
+
+@if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
+{
+    <li class="nav-item">
+        <a asp-controller="ShoppingCart" asp-action="Index">
+            <span class="nav-link text-dark">Cart 
+                @Model.ShoppingCart.ShoppingCartItems.Count</span>
+        </a>
+    </li>
+}

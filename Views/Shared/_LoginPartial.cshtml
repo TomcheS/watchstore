@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="nav navbar-nav navbar-right">
+        @if (User.IsInRole("Admin"))
+        {
+            <li><a asp-controller="Admin" asp-action="Index">Admin Page</a></li>
+        }
+        <li><a href="">Welcome, @User.Identity.Name</a></li>
+        
+        <li><a id="logoutLink" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Log Out</a></li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a id="registerLink"  asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+        <li><a id="loginLink" asp-area="Identity" asp-page="/Account/Login">Log in</a></li>
+    </ul>
+}

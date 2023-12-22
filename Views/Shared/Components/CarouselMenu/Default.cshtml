@@ -1,0 +1,27 @@
+@model IEnumerable<Watches>
+
+<div class="row carousel-holder" align="center">
+    <div class="col-md-12">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                @foreach (var watch in Model)
+                {
+                    <li data-target="#carousel-example-generic" data-slide-to="@watch.Id"></li>
+                }
+            </ol>
+            <div class="carousel-inner">
+                
+                @foreach (var watch in Model)
+                {
+                <div class="item">
+                    <div class="text-center"><h3><b>@watch.Name</b></h3></div>
+                    <a asp-controller="Watches" asp-action="DisplayDetails" asp-route-id="@watch.Id"> 
+                        <img class="slide-image" height="250" src="@watch.PhotoURL" alt="Picture of @watch.Name">
+                    </a>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
